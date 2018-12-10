@@ -39,18 +39,20 @@ if(firsti == 1):#firsti == 1 means it is player2.
 
 while True:
     strinput = input('Make a move (q to quit):')
-    playvalue = game.play(strinput, firsti+1)
-    while playvalue == 0:
-        strinput = input('Make a move (q to quit):')
+    if strinput != 'q':
         playvalue = game.play(strinput, firsti+1)
-    if(playvalue == 1):
-        strinput = "Player {} wins".format(firsti+1)
+        while playvalue == 0:
+            strinput = input('Make a move (q to quit):')
+            playvalue = game.play(strinput, firsti+1)
+        if(playvalue == 1):
+            strinput = "Player {} wins".format(firsti+1)
+    else:
+        playvalue = 1
 
 
     str_enc = strinput.encode('utf-8')
 
     sock.send(str_enc)
-    if strinput=='q': break
     if playvalue == 1: break
     print("...waiting player{} to make move...\n".format(2-firsti))
 
