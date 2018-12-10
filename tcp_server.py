@@ -66,15 +66,22 @@ while True:
             move1 = player1
             connections[1].send(move1)
             if move1.decode('utf-8') == 'q':
-                print('player1 quit, game over.')
+                print('Player1 quit, game over.')
                 break
+            elif move1.decode('utf-8') == "Player 1 wins":
+                print('Player 1 wins, game over.')
+                break
+
 
         player2 = parentpip[1].recv()
         if(player2):
             move2 = player2
             connections[0].send(move2)
             if move2.decode('utf-8') == 'q':
-                print('player2 quit, game over.')
+                print('Player2 quit, game over.')
+                break
+            elif move2.decode('utf-8') == "Player 2 wins":
+                print('Player 2 wins, game over.')
                 break
 
 

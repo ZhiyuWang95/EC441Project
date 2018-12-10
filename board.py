@@ -2,7 +2,7 @@ class Board:
 
 	
 	def __init__(self):
-		self.config = [[0 for x in xrange(15)] for x in xrange(15)] 
+		self.config = [[0 for x in range(15)] for x in range(15)]
 
 	def toString(self):
 		rtn="-------------------------------"
