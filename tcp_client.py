@@ -14,7 +14,6 @@ SERVER_ADDR, SERVER_PORT = '127.0.0.1', 9000
 
 sock = s.socket(s.AF_INET, s.SOCK_STREAM)
 
-#input('wait')
 sock.connect( (SERVER_ADDR, SERVER_PORT) )
 
 print('Here is',sock.getsockname())
@@ -27,7 +26,7 @@ print('Input move in "x, y" format.')
 
 game = Gomoku()
 
-if(firsti == 1):#firsti == 1 means it is player2.
+if(firsti == 1):#firsti ==  means it is player2.
     print("Waiting player1 to make the first move")
     reply = sock.recv(SIZE_LIMIT)
     reply_dec = reply.decode('utf-8')
@@ -70,5 +69,4 @@ while True:
 
     print('Player{} made move {}'.format(2-firsti, reply_dec))
     game.play(reply_dec, 2-firsti)
-    #play(reply_dec)
 sock.close()
